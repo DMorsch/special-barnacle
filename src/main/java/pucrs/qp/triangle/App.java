@@ -1,5 +1,8 @@
 package pucrs.qp.triangle;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 
 /**
  * 
@@ -28,10 +31,11 @@ public class App {
 	}
 	
 	//metodo para calcular a distancia entre 2 pontos
-	public static double distancia(double x1, double y1, double x2, double y2) {
+	public static double distancia(double x1, double y1, double x2, double y2) throws ParseException {
 		double result = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 		String resultado = String.format("%.4f", result);
-		result = Double.parseDouble(resultado); 
+		NumberFormat nf = NumberFormat.getInstance(Locale.US);
+		result = nf.parse(resultado).doubleValue();
 		return result;
 	}
 
