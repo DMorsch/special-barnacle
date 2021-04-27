@@ -1,9 +1,11 @@
 package pucrs.qp.triangle;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;
-
+import java.util.Scanner;
 /**
  * 
  * @author marco.mangan@pucrs.br
@@ -43,12 +45,25 @@ public class App {
 	 * 
 	 * @param args
 	 * @throws ParseException 
+	 * @throws FileNotFoundException 
 	 */
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, FileNotFoundException {
 		System.out.println("Triângulos!");
 		System.out.println(identificaTriangulo(2, 3, 4));
-		System.out.println("Distância!");
-		System.out.println(distancia(1.0, 7.0, 5.0, 9.0));
+		//System.out.println("Distância!");
+		//System.out.println(distancia(1.0, 7.0, 5.0, 9.0));
+		Scanner in = new Scanner(new FileReader("entrada"));
+		String[] dados = new String[2];
+		int i = 0;
+		while(in.hasNext()) {
+			dados[i] = in.nextLine();
+			i++;
+		}
+		double x1 = Double.parseDouble(dados[0].split(" ")[0]);
+		double x2 = Double.parseDouble(dados[1].split(" ")[0]);
+		double y1 = Double.parseDouble(dados[0].split(" ")[1]);
+		double y2 = Double.parseDouble(dados[1].split(" ")[1]);
+		System.out.println(distancia(x1, y1, x2, y2));
 	}
 }
 
