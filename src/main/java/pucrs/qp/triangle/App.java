@@ -34,7 +34,7 @@ public class App {
 	public static double distancia(double x1, double y1, double x2, double y2) throws ParseException {
 		double result = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 		String resultado = String.format("%.4f", result);
-		NumberFormat nf = NumberFormat.getInstance(Locale.US);
+		NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
 		result = nf.parse(resultado).doubleValue();
 		return result;
 	}
@@ -42,10 +42,13 @@ public class App {
 	/**
 	 * 
 	 * @param args
+	 * @throws ParseException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		System.out.println("Triângulos!");
 		System.out.println(identificaTriangulo(2, 3, 4));
+		System.out.println("Distância!");
+		System.out.println(distancia(1.0, 7.0, 5.0, 9.0));
 	}
 }
 
