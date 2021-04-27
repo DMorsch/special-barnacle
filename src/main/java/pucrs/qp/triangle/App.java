@@ -1,5 +1,6 @@
 package pucrs.qp.triangle;
 
+
 /**
  * 
  * @author marco.mangan@pucrs.br
@@ -24,6 +25,14 @@ public class App {
 				return tipos.ISOSCELES.value();
 		}
 		return tipos.INVALIDO.value();
+	}
+	
+	//metodo para calcular a distancia entre 2 pontos
+	public static double distancia(double x1, double y1, double x2, double y2) {
+		double result = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+		String resultado = String.format("%.4f", result);
+		result = Double.parseDouble(resultado); 
+		return result;
 	}
 
 	/**
